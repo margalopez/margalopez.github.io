@@ -6,6 +6,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     @apply font-secondary;
+
+    span {
+        @apply text-primary;
+    }
 }
 
 h1 {
@@ -24,6 +28,14 @@ h4 {
     @apply text-sm;
 }
 
-p, a, li, span {
+p, a, li {
     @apply text-sm;
+}
+
+p, li {
+    @apply mb-4;
+
+    &:last-child {
+        @apply mb-0;
+    }
 }

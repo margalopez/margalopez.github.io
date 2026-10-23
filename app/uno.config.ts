@@ -36,6 +36,11 @@ export default defineConfig({
         },
         zIndex: {
             nav: 50,
+        },
+        spacing: {
+            navbar: '1.25rem',
+            section: '4rem',
+            subsection: '2rem',
         }
     }
 })
