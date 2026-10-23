@@ -1,0 +1,136 @@
+---
+const pages = [{
+    title: 'About Me',
+    id: 'about-me'
+}, {
+    title: 'Skills',
+    id: 'skills'
+}, {
+    title: 'Projects',
+    id: 'projects'
+}, {
+    title: 'Contact',
+    id: 'contact'
+}];
+
+const socialsPersonal = [{
+        icon: 'i-simple-icons:linkedin',
+        url: 'https://www.linkedin.com/in/marga-l%C3%B3pez-27781684/',
+    },
+    {
+        icon: 'i-simple-icons:github',
+        url: 'https://github.com/margalopez'
+    }
+];
+
+const socialsPaperets = [{
+        icon: 'i-simple-icons:itchdotio',
+        url: 'https://paperets.itch.io/',
+    },
+    {
+        icon: 'i-simple-icons:kofi',
+        url: 'https://ko-fi.com/paperets'
+    },
+    {
+        icon: 'i-simple-icons:youtube',
+        url: 'https://www.youtube.com/@paperets_dev'
+    },
+    {
+        icon: 'i-simple-icons:instagram',
+        url: 'https://www.instagram.com/paperets_dev/'
+    },
+];
+---
+
+<nav class="navigation">
+    <div class="navigation__content">
+        <!-- Logo -->
+        <h2 class="navigation__logo">Marga López<span>_</span></h2>
+
+        <!-- Links -->
+        <div class="navigation__links">
+            {pages.map((page) => (
+                <a
+                    class="navigation__link"
+                    href={`#${page.id}`}
+                >{page.title}</a>
+            ))}
+        </div>
+
+        <!-- Social Links -->
+        <div class="navigation__social">
+            {socialsPersonal.map((social) => (
+                <a
+                    class="navigation__social-link"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <p class={social.icon}></p>
+                </a>
+            ))}
+            <div class="navigation__separator"></div>
+            {socialsPaperets.map((social) => (
+                <a
+                    class="navigation__social-link"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <p class={social.icon}></p>
+                </a>
+            ))}
+        </div>
+    </div>
+</nav>
+
+<style lang="scss">
+    .navigation {
+        @apply h-17.5 w-full sticky top-0 z-nav bg-boxes;
+
+        &__content {
+            @apply layout flex items-center justify-around h-full;
+        }
+
+        &__logo {
+            span {
+                @apply text-primary;
+            }
+        }
+
+        &__links {
+            @apply flex gap-6;
+        }
+
+        &__link {
+            @apply text-foreground relative;
+            text-decoration: none;
+
+            &::before {
+                content: '';
+                @apply absolute bottom--1 left-0 w-full h-0.5 bg-primary scale-x-0
+                origin-left transition-transform duration-300;
+            }
+
+            &:hover::before {
+                @apply scale-x-100;
+            }
+        }
+
+        &__social {
+            @apply flex gap-4;
+
+            &-link {
+                @apply text-foreground hover:text-primary transition-colors duration-300;
+
+                p {
+                    @apply w-6 h-6;
+                }
+            }
+        }
+
+        &__separator {
+            @apply w-px h-6 bg-foreground;
+        }
+    }
+</style>

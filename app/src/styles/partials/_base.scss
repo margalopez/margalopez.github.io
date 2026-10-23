@@ -1,0 +1,9 @@
+html,
+body {
+    @apply m-0 w-100dvw h-100dvh;
+    @apply bg-background;
+}
+
+* {
+    @apply m-0;
+}
