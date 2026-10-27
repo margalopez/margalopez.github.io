@@ -30,6 +30,9 @@ export default defineConfig({
             'lospec500-eggplant': '#2C1E31',
             'lospec500-black': '#10121C'
         },
+        textShadow: {
+            text: '-2px -2px 0px rgba(44, 30, 49, 1), -2px -2px 0px rgba(44, 30, 49, 1), -2px -2px 0px rgba(44, 30, 49, 1)'
+        },
         fontFamily: {
             main: ['Comfortaa', 'sans-serif'],
             secondary: ['Pixelify Sans', 'sans-serif'],
