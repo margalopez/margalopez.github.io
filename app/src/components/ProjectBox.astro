@@ -1,0 +1,95 @@
+---
+import { skills as skillsMap, type Skill } from '../utils/skills'
+
+interface Props {
+    skills: Skill[];
+    imageSrc: string;
+    title: string;
+    date: string;
+    link: string;
+}
+
+const { skills, imageSrc, title, date, link } = Astro.props;
+---
+
+<div class="project-box">
+    <img
+        src={imageSrc}
+        alt={title}
+        class="project-box__image"
+    >
+
+    <div class="project-box__content">
+        <div class="project-box__head">
+            <div class="project-box__title">
+                <slot name="title"></slot>
+            </div>
+
+            <div class="project-box__meta">
+                <h3 class="project-box__meta-title">Skills used:</h3>
+                {skillsMap.filter(_ => skills.includes(_.id)).map((skill) => (
+                    <img
+                        src={skill.image}
+                        alt={skill.title}
+                        class="project-box__meta-skill"
+                    >
+                ))}
+            </div>
+
+            <div class="project-box__meta">
+                <h3 class="project-box__meta-title">Date published:</h3>
+                <p class="project-box__meta-date">{ date }</p>
+            </div>
+        </div>
+
+        <div class="project-box__description"><slot /></div>
+
+        <div class="project-box__actions">
+            <slot name="actions"></slot>
+        </div>
+    </div>
+</div>
+
+<script>
+
+const button = document.getElementById(`Play ${title}`)
+
+</script>
+
+<style lang="scss">
+    .project-box {
+        @apply flex flex-col items-start md:flex-row gap-6 mb-subsection;
+
+        &__image {
+            @apply w-full md:max-w-90 rounded-3;
+        }
+
+        &__head {
+            @apply mb-4.5;
+        }
+
+        &__title {
+            @apply text-primary mb-1.5;
+        }
+
+        &__meta {
+            @apply flex items-center gap-1.5 mb-1.5;
+
+            &-title {
+                @apply font-secondary;
+            }
+
+            &-skill {
+                @apply w-6 h-6;
+            }
+        }
+
+        &__description {
+            @apply mb-4.5;
+        }
+
+        &__actions {
+            @apply flex;
+        }
+    }
+</style>

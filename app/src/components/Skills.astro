@@ -6,67 +6,10 @@ import skillsActive from '../assets/images/skills-active.svg';
 import skillsPassive from '../assets/images/skills-passive.svg';
 
 // Mobile ver
-import skillGodot from '../assets/images/skills/godot.png';
-import skillDigitalArt from '../assets/images/skills/digital-art.png';
-import skillJS from '../assets/images/skills/js.png';
-import skillTS from '../assets/images/skills/ts.png';
-import skillVueJS from '../assets/images/skills/vuejs.png';
-import skillAstro from '../assets/images/skills/astro.png';
-import skillD3 from '../assets/images/skills/d3.png';
-import skillHTML from '../assets/images/skills/html.png';
-import skillCSS from '../assets/images/skills/css.png';
-import skillNodeJS from '../assets/images/skills/nodejs.png';
-import skillMentoring from '../assets/images/skills/mentoring.png';
-import skillCreativity from '../assets/images/skills/creativity.png';
-import skillProblemSolving from '../assets/images/skills/problem-solving.png';
-import skillTeamPlayer from '../assets/images/skills/team-player.png';
+import { skills } from '../utils/skills';
 
-const activeSkills = [{
-    image: skillGodot.src,
-    title: 'Godot'
-},  {
-    image: skillDigitalArt.src,
-    title: 'Digital Art'
-},  {
-    image: skillJS.src,
-    title: 'JavaScript'
-},  {
-    image: skillTS.src,
-    title: 'TypeScript'
-},  {
-    image: skillVueJS.src,
-    title: 'Vue.js'
-},  {
-    image: skillAstro.src,
-    title: 'Astro'
-},  {
-    image: skillD3.src,
-    title: 'D3.js'
-},  {
-    image: skillHTML.src,
-    title: 'HTML5'
-},  {
-    image: skillCSS.src,
-    title: 'CSS3'
-},  {
-    image: skillNodeJS.src,
-    title: 'Node.js'
-}];
-
-const passiveSkills = [{
-    image: skillMentoring.src,
-    title: 'Mentoring'
-},  {
-    image: skillCreativity.src,
-    title: 'Creativity'
-},  {
-    image: skillProblemSolving.src,
-    title: 'Problem Solving'
-},  {
-    image: skillTeamPlayer.src,
-    title: 'Team Player'
-}];
-
+const activeSkills = skills.filter(_ => _.type === 'active');
+const passiveSkills = skills.filter(_ => _.type === 'passive');
 ---
 
 <section

@@ -15,3 +15,11 @@ body {
 hr {
     @apply layout text-boxes bg-boxes text-0 border-0 h-2px;
 }
+
+button,
+a.button {
+    @apply py-4 px-5 bg-primary color-white font-secondary;
+    @apply border-transparent rounded-full;
+    @apply hover:transform-scale-102 transition-transform duration-300;
+    @apply cursor-pointer;
+}

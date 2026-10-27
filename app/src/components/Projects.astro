@@ -1,0 +1,40 @@
+---
+import ProjectBox from './ProjectBox.astro';
+import SectionTitle from './SectionTitle.astro';
+import returnHome from '../assets/images/projects/return-home.png'
+---
+
+<section
+    id="projects"
+    class="projects"
+>
+    <SectionTitle>
+        <h1 slot="title">My <span>projects</span></h1>
+        <p slot="description">These are all the projects I have developed outside working hours. Unfortunately, I cannot share any of my professional Software Engineering projects. Fortunately, however, I can share my passion projects! Please feel free to take a look.</p>
+    </SectionTitle>
+
+    <ProjectBox
+        skills={['godot', 'digital-art', 'creative', 'problem-solving']}
+        imageSrc={returnHome.src}
+        title="Return Home"
+        date="October 2026"
+        link="https://paperets.itch.io/return-home"
+    >
+        <h2 slot="title">Return Home</h2>
+        <p>“Return Home” is the first game I’ve ever made, built for <a href="https://itch.io/jam/tranki-jam-1" target="_blank">Tranki Jam #1</a>. I self-taught and used Godot as the Game Engine, participating alone to push my limits and see how far I could get with my own knowledge and skills.</p>
+        <p>In this game you play as a cat, inspired by my two cats – one as the cat model and the other as the voice actor. It’s a simple platformer where you get to enjoy the scenery and some jump puzzles (and the cat, of course).</p>
+        <a class="button" slot="actions">Play it for free on itch.io!</a>
+    </ProjectBox>
+
+    <p class="projects__footnote">The things I build are mostly made by me. My stance on Artificial Intelligence is that it’s a fantastic tool as a code reviewer/assistant (and as a “Google on steroids”), but I do enjoy the craft and the joy of creating software and art on my own terms, using my own creativity and drive. Everything you see has been designed and drawn by me. For game dev, I'm currently coding everything by hand, using AI to facilitate a deeper understanding.  For webapps, AI is usually used for setup and menial tasks (I keep the challenging/more fun parts for myself).</p>
+</section>
+
+<style lang="scss">
+    .projects {
+        @apply layout mb-section;
+
+        &__footnote {
+            @apply text-xs font-light;
+        }
+    }
+</style>
