@@ -1,0 +1,48 @@
+---
+import { socials } from '../utils/socials';
+
+const socialsPersonal = socials.filter(_ => _.owner === 'personal');
+const socialsPaperets = socials.filter(_ => _.owner === 'paperets');
+---
+
+<div class="navigation-socials">
+    {socialsPersonal.map((social) => (
+        <a
+            class="navigation-socials__link"
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <p class={social.icon}></p>
+        </a>
+    ))}
+    <div class="navigation-socials__separator"></div>
+    {socialsPaperets.map((social) => (
+        <a
+            class="navigation-socials__link"
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <p class={social.icon}></p>
+        </a>
+    ))}
+</div>
+
+<style lang="scss">
+    .navigation-socials {
+        @apply flex gap-6 md:gap-4;
+
+        &__link {
+            @apply transition-colors duration-300;
+
+            p {
+                @apply w-6 h-6 text-foreground hover:text-primary;
+            }
+        }
+
+        &__separator {
+            @apply w-px h-6 bg-foreground;
+        }
+    }
+</style>

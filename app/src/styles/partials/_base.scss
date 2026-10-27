@@ -1,0 +1,34 @@
+html,
+body {
+    @apply m-0 w-full h-full;
+    @apply bg-background;
+}
+
+*,
+*::before,
+*::after {
+    @apply box-border m-0 p-0;
+}
+
+// HTML elements & basic components
+
+hr {
+    @apply layout text-boxes bg-boxes text-0 border-0 h-2px;
+}
+
+button,
+a.button {
+    @apply py-4 px-5 inline-flex items-center gap-2;
+    @apply bg-primary border-transparent rounded-full;
+    @apply color-white font-secondary decoration-none;
+    @apply hover:transform-scale-102 transition-transform duration-300;
+    @apply cursor-pointer;
+
+    &.secondary {
+        @apply py-3 px-4 bg-white text-primary; 
+    }
+}
+
+span[class^=i-] {
+    @apply w-4 h-4 relative inline-flex;
+}

@@ -1,0 +1,110 @@
+---
+import SectionTitle from './SectionTitle.astro';
+
+// PC ver
+import skillsActive from '../assets/images/skills-active.svg';
+import skillsPassive from '../assets/images/skills-passive.svg';
+
+// Mobile ver
+import { skills } from '../utils/skills';
+
+const activeSkills = skills.filter(_ => _.type === 'active');
+const passiveSkills = skills.filter(_ => _.type === 'passive');
+---
+
+<section
+    id="skills"
+    class="skills"
+>
+    <SectionTitle>
+        <h1 slot="title">My <span>skill</span> tree</h1>
+        <p>These are the most relevant skills I’ve gathered along the years that help me build the software I build. The skill tree will only keep growing!</p>
+    </SectionTitle>
+
+    <div class="skills__tree">
+        <div class="skills__column">
+            <h2 class="skills__column-title">Active skills</h2>
+            <img
+                class="skills__image"
+                src={skillsActive.src}
+                alt="Active skills"
+            />
+
+            <div class="skills__mobile-skills">
+                {activeSkills.map((skill) => (
+                    <div class="skills__skill">
+                        <img
+                            class="skills__skill-image"
+                            src={skill.image}
+                            alt={skill.title}
+                        />
+                        <p class="skills__skill-title">{skill.title}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="skills__separator" />
+        <div class="skills__column">
+            <h2 class="skills__column-title">Passive skills</h2>
+            <img
+                class="skills__image"
+                src={skillsPassive.src}
+                alt="Passive skills"
+            />
+
+            <div class="skills__mobile-skills">
+                {passiveSkills.map((skill) => (
+                    <div class="skills__skill">
+                        <img
+                            class="skills__skill-image"
+                            src={skill.image}
+                            alt={skill.title}
+                        />
+                        <p class="skills__skill-title">{skill.title}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .skills {
+        @apply layout mb-section;
+
+        &__tree {
+            @apply flex flex-col md:flex-row justify-between;
+            @apply bg-lospec500-black p-6 gap-4.5 rounded-lg;
+        }
+
+        &__column {
+            &-title {
+                @apply mb-5 text-center;
+            }
+        }
+
+        &__separator {
+            @apply w-full md:w-1px h-1px md:h-initial bg-background self-stretch md:block;
+        }
+
+        &__image {
+            @apply w-full hidden md:block;
+        }
+
+        &__mobile-skills {
+            @apply flex justify-center flex-wrap gap-5 md:hidden;
+        }
+
+        &__skill {
+            @apply flex flex-col items-center gap-2 max-w-18.5;
+
+            &-image {
+                @apply w-18.5 h-18.5;
+            }
+
+            &-title {
+                @apply font-secondary text-shadow-text text-center;
+            }
+        }
+    }
+</style>

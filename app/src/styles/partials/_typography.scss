@@ -1,0 +1,45 @@
+
+html,
+body {
+    @apply text-foreground font-main scroll-smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-secondary;
+
+    span {
+        @apply text-primary;
+    }
+}
+
+h1 {
+    @apply text-4xl;
+}
+
+h2 {
+    @apply text-2xl;
+}
+
+h3 {
+    @apply text-base;
+}
+
+h4 {
+    @apply text-sm;
+}
+
+p, a, li {
+    @apply text-sm;
+}
+
+p, li {
+    @apply mb-4;
+
+    &:last-child {
+        @apply mb-0;
+    }
+}
+
+a {
+    @apply text-primary;
+}

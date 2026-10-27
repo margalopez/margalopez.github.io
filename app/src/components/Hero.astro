@@ -1,0 +1,68 @@
+---
+import chatPointer from '../assets/images/chat-pointer.svg';
+import selfPortrait from '../assets/images/self-portrait.gif';
+---
+
+<section
+    id="hero"
+    class="hero"
+>
+    <h1 class="hero__title">I love <span>games</span>,<br/><span>software</span> and <span>tech</span>.<br/>And I like to <span>build</span> cool stuff.</h1>
+
+    <div class="hero__intro">
+        <div class="hero__chat">
+            <div class="hero__chat-box">
+                <p class="hero__chat-text">Hi, my name is <span>Marga López</span>. Nice to meet you!</p>
+                <p class="hero__chat-text">I’m a <span>Senior Software Engineer</span> with more than 10 years of experience in the field and am now <s>multiclassing</s> exploring <span>Game Dev</span>. I’m based in Spain, and amongst coding I also love <span>cats</span>, <span>food</span> and <span>plants</span>. My magical country to visit is <span>Japan</span>, as I really enjoy manga and anime, but also its architecture and culture, which had me fascinated growing up as a kid.</p>
+                <p class="hero__chat-text">Back then, I’d also spend hours <span>drawing</span> my favourite characters, and I’m slowly getting back into this passion by creating digital art – I’m really enjoying <span>pixel art</span>, if you hadn't already noticed :).</p>
+            </div>
+            <img
+                class="hero__chat-pointer"
+                src={chatPointer.src}
+                alt="Chat pointer"
+            />
+        </div>
+
+        <img
+            class="hero__image"
+            src={selfPortrait.src}
+            alt="Marga López"
+        />
+    </div>
+</section>
+
+<style lang="scss">
+    .hero {
+        @apply layout pt-section;
+
+        &__title {
+            @apply lg:text-right lg:text-7xl text-5xl;
+        }
+
+        &__intro {
+            @apply mt-section flex flex-col md:flex-row items-center md:items-end justify-between;
+        }
+
+        &__chat {
+            @apply mb-4 md:mb-section flex flex-col md:flex-row items-end;
+
+            &-box {
+                @apply p-6 rounded-lg rounded-br-none bg-boxes;
+            }
+
+            &-pointer {
+                @apply mr-3px mt--3px md:mx-0 md:mt-0 md:mb--1px transform rotate-90 md:rotate-0;
+            }
+
+            &-text {
+                span {
+                    @apply text-secondary;
+                }
+            }
+        }
+
+        &__image {
+            @apply w-full max-w-60 md:w-69 md:min-w-69 md:h-69;
+        }
+    }
+</style>

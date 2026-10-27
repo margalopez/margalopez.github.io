@@ -1,0 +1,157 @@
+---
+import NavigationSocials from './NavigationSocials.astro';
+
+const pages = [{
+    title: 'About Me',
+    id: 'hero'
+}, {
+    title: 'Skills',
+    id: 'skills'
+}, {
+    title: 'Projects',
+    id: 'projects'
+}, {
+    title: 'Contact',
+    id: 'contact'
+}];
+---
+
+<nav class="navigation">
+    <div class="navigation__content">
+        <!-- Logo -->
+        <h2 class="navigation__logo">Marga López<span>_</span></h2>
+
+        <!-- Links -->
+        <div class="navigation__links">
+            {pages.map((page) => (
+                <a
+                    class="navigation__link"
+                    href={`#${page.id}`}
+                >{page.title}</a>
+            ))}
+        </div>
+
+        <!-- Social Links -->
+        <div class="navigation__socials navigation__socials--desktop">
+            <NavigationSocials />
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="navigation__menu">
+            <button
+                id="menu-button"
+                class="i-mdi:menu navigation__menu-icon"
+            ></button>
+
+            <div
+                class="navigation__menu-box"
+                id="menu"
+            >
+                <button
+                    id="menu-close-button"
+                    class="i-mdi:times navigation__menu-icon navigation__menu-icon--close"
+                ></button>
+
+                <div class="navigation__menu-links">
+                    {pages.map((page) => (
+                        <a
+                            class="navigation__menu-link"
+                            href={`#${page.id}`}
+                        >{page.title}</a>
+
+                    ))}
+                </div>
+
+                <NavigationSocials />
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menuButtonClose = document.getElementById('menu-close-button');
+    const links = document.querySelectorAll('.navigation__menu-link')
+    const menu = document.getElementById('menu');
+
+    const openMenu = () => menu?.classList.add('is-visible') 
+    menuButton?.addEventListener('click', openMenu)
+    
+    const closeMenu = () => menu?.classList.remove('is-visible') 
+    menuButtonClose?.addEventListener('click', closeMenu)
+    links.forEach((link) => {
+        link.addEventListener('click', closeMenu)
+    })
+</script>
+
+<style lang="scss">
+    .navigation {
+        @apply h-17.5 w-full sticky top--1px z-nav bg-boxes;
+
+        &__content {
+            @apply layout flex items-center justify-between h-full;
+        }
+
+        &__logo {
+            span {
+                @apply text-primary;
+            }
+        }
+
+        // Desktop
+        &__links {
+            @apply hidden md:flex gap-navbar;
+        }
+
+        &__link {
+            @apply text-foreground relative;
+            text-decoration: none;
+
+            &::before {
+                content: '';
+                @apply absolute bottom--1 left-0 w-full h-0.5 bg-primary scale-x-0
+                origin-left transitio n-transform duration-300;
+            }
+
+            &:hover::before {
+                @apply scale-x-100;
+            }
+        }
+
+        &__socials {
+            &--desktop {
+                @apply hidden md:inline;
+            }
+        }
+
+        // Mobile
+        &__menu {
+            @apply md:hidden;
+
+            &-icon {
+                @apply w-6 h-6;
+
+                &--close {
+                    @apply self-end;
+                }
+            }
+
+            &-box {
+                @apply hidden fixed w-100dvw h-100dvh top-0 left-0;
+                @apply py-6 layout flex-col items-center justify-between;
+                @apply bg-boxes;
+                @apply z-navMenu;
+
+                &.is-visible {
+                    @apply flex;
+                }
+            }
+
+            &-link {
+                @apply block text-center decoration-none;
+                @apply text-lg mb-4;
+            }
+        }
+    }
+</style>

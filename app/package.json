@@ -13,5 +13,16 @@
   },
   "dependencies": {
     "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "@iconify-json/cib": "^1.2.3",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.100",
+    "@unocss/astro": "^66.11.0",
+    "@unocss/preset-icons": "^66.11.0",
+    "@unocss/preset-wind3": "^66.11.0",
+    "@unocss/transformer-directives": "^66.11.0",
+    "sass-embedded": "^1.106.1",
+    "unocss": "^66.11.0"
   }
 }
