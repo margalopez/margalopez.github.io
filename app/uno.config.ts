@@ -39,6 +39,8 @@ export default defineConfig({
         },
         zIndex: {
             nav: 50,
+            backToTop: 60,
+            navMenu: 75,
         },
         spacing: {
             navbar: '1.25rem',

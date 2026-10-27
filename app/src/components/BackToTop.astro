@@ -1,0 +1,36 @@
+<button
+    id="back-to-top"
+    class="back-to-top secondary"
+>
+    Back to top
+    <span class="i-mdi:arrow-up"></span>
+</button>
+
+<script>
+    const button = document.getElementById('back-to-top')
+    button?.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0
+        })
+    })
+
+    window.addEventListener('scroll', () => {
+        const visible = window.scrollY >= (window.innerHeight / 2) 
+        if (visible && !button?.classList.contains('is-visible')) {
+            button?.classList.add('is-visible')
+        } else if (!visible) {
+            button?.classList.remove('is-visible')
+        }
+    })
+</script>
+
+<style lang="scss">
+    .back-to-top {
+        @apply hidden fixed bottom-4 right-4;
+        @apply z-backToTop;
+
+        &.is-visible {
+            @apply flex;
+        }
+    }
+</style>

@@ -23,6 +23,10 @@ a.button {
     @apply color-white font-secondary decoration-none;
     @apply hover:transform-scale-102 transition-transform duration-300;
     @apply cursor-pointer;
+
+    &.secondary {
+        @apply py-3 px-4 bg-white text-primary; 
+    }
 }
 
 span[class^=i-] {
