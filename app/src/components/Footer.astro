@@ -1,0 +1,81 @@
+---
+import { socials } from '../utils/socials';
+
+const socialsPersonal = socials.filter(_ => _.owner === 'personal');
+const socialsPaperets = socials.filter(_ => _.owner === 'paperets');
+---
+
+<footer class="footer">
+    <div class="footer__content">
+        <div class="footer__column">
+            <p>Handcrafted with <span>♥</span>.</p>
+            <p>© 2026 Marga López. All rights reserved.</p>
+        </div>
+    
+        <div class="footer__column footer__column--right">
+            <p>Get in touch with <span>me</span> :)</p>
+            <div class="footer__social">
+                {socialsPersonal.map((social) => (
+                    <a
+                        class="footer__social-link"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <p class={social.icon}></p>
+                    </a>
+                ))}
+            </div>
+    
+            <p>Follow my journey as an <span>indie game dev</span> ^o^</p>
+            <div class="footer__social">
+                {socialsPaperets.map((social) => (
+                    <a
+                        class="footer__social-link"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <p class={social.icon}></p>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+    .footer {
+        @apply bg-boxes py-section;
+        
+        &__content {
+            @apply layout md:flex items-end;
+        }
+
+        &__column {
+            @apply md:w-50%;
+
+            &--right {
+                p {
+                    @apply text-right;
+                }
+            }
+
+            span {
+                @apply text-secondary;
+            }
+        }
+
+        &__social {
+            @apply flex md:justify-end gap-4 mb-4.5 last:mb-0;
+
+            &-link {
+                @apply text-foreground hover:text-primary transition-colors duration-300;
+
+                p {
+                    @apply w-6 h-6;
+                }
+            }
+        }
+    }
+</style>

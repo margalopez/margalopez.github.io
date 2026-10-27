@@ -1,0 +1,25 @@
+---
+import SectionTitle from './SectionTitle.astro';
+---
+<section
+    id="contact"
+    class="contact"
+>
+    <SectionTitle>
+        <h1 slot="title">Want to <span>collaborate</span>?</h1>
+        <p>If my profile is something that resonates with you, please feel free to reach out to me. I’m excited to meet new people in the field, whether you’re an engineer, game dev, musician, digital artist or you just want to chat about passions we share.</p>
+        <p>You can either DM on my personal or Paperets (indie game dev profile) socials, or send me an email.</p>
+        <p>Looking forward to meeting you!</p>
+    </SectionTitle>
+
+    <a
+        class="button"
+        href="mailto:margalt.90@gmail.com"
+    >Contact me<span class="i-mdi:email-outline"></span></a>
+</section>
+
+<style lang="scss">
+    .contact {
+        @apply layout mb-section;
+    }
+</style>

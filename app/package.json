@@ -15,6 +15,7 @@
     "astro": "^7.4.2"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.100",
     "@unocss/astro": "^66.11.0",
     "@unocss/preset-icons": "^66.11.0",

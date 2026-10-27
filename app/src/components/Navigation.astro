@@ -1,4 +1,6 @@
 ---
+import { socials } from '../utils/socials';
+
 const pages = [{
     title: 'About Me',
     id: 'hero'
@@ -13,33 +15,8 @@ const pages = [{
     id: 'contact'
 }];
 
-const socialsPersonal = [{
-        icon: 'i-simple-icons:linkedin',
-        url: 'https://www.linkedin.com/in/marga-l%C3%B3pez-27781684/',
-    },
-    {
-        icon: 'i-simple-icons:github',
-        url: 'https://github.com/margalopez'
-    }
-];
-
-const socialsPaperets = [{
-        icon: 'i-simple-icons:itchdotio',
-        url: 'https://paperets.itch.io/',
-    },
-    {
-        icon: 'i-simple-icons:kofi',
-        url: 'https://ko-fi.com/paperets'
-    },
-    {
-        icon: 'i-simple-icons:youtube',
-        url: 'https://www.youtube.com/@paperets_dev'
-    },
-    {
-        icon: 'i-simple-icons:instagram',
-        url: 'https://www.instagram.com/paperets_dev/'
-    },
-];
+const socialsPersonal = socials.filter(_ => _.owner === 'personal');
+const socialsPaperets = socials.filter(_ => _.owner === 'paperets');
 ---
 
 <nav class="navigation">

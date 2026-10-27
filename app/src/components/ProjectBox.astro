@@ -6,10 +6,9 @@ interface Props {
     imageSrc: string;
     title: string;
     date: string;
-    link: string;
 }
 
-const { skills, imageSrc, title, date, link } = Astro.props;
+const { skills, imageSrc, title, date } = Astro.props;
 ---
 
 <div class="project-box">
@@ -32,6 +31,7 @@ const { skills, imageSrc, title, date, link } = Astro.props;
                         src={skill.image}
                         alt={skill.title}
                         class="project-box__meta-skill"
+                        title={skill.title}
                     >
                 ))}
             </div>
